@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Windows 11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="calculator">
+    <!-- Tela da Calculadora -->
+    <div class="display">
+      <div id='historic' class="history">12 ×</div>
+      <div id='current_on_hold' class="current-input">0</div>
+    </div>
+
+    <!-- Teclado de Botões -->
+    <div class="buttons">
+      <!-- Linha 1 -->
+      <button class="btn-secondary">%</button>
+      <button class="btn-secondary">CE</button>
+      <button class="btn-secondary">C</button>
+      <button class="btn-secondary">⌫</button>
+
+      <!-- Linha 2 -->
+      <button class="btn-secondary">¹/x</button>
+      <button class="btn-secondary">x²</button>
+      <button class="btn-secondary">√x</button>
+      <button class="btn-secondary">÷</button>
+
+      <!-- Linha 3 -->
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button class="btn-secondary">×</button>
+
+      <!-- Linha 4 -->
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button class="btn-secondary">-</button>
+
+      <!-- Linha 5 -->
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="btn-secondary">+</button>
+
+      <!-- Linha 6 -->
+      <button class="btn-secondary">+/ -</button>
+      <button>0</button>
+      <button class="btn-secondary">,</button>
+      <button onclick="calculateValuesOnHold()" class="btn-accent">=</button>
+    </div>
+  </div>
+
+</body>
+
+<script src="script.js"></script>
+</html>
