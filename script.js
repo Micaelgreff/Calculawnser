@@ -1,5 +1,11 @@
 
-const on_hold_values = []
+
+let current_value = '0'
+const current_expression = []
+const current_expression_element = document.getElementById('current_expression')
+
+const historic = []
+const historic_element = document.getElementById('historic')
 
 const phrases = {
     hacker: [
@@ -10,9 +16,15 @@ const phrases = {
 }
 
 
+function init(){
+    current_expression_element.textContent = current_value
+    historic_element.textContent = historic
+}
+
+
 function calculateValuesOnHold(){
-    on_hold_values.push(document.getElementById('current_on_hold').textContent)
-    console.log(on_hold_values)
+    current_expression.push(current_expression_element.textContent)
+    console.log(current_expression)
 }
 
 
@@ -27,5 +39,26 @@ function number_function(event, value){
         let sorted_phrase = available_phrases[sorted_index]
 
         console.log(sorted_phrase)
+    } else {
+        if(typeof value === 'number'){
+            current_value = current_value === '0' ? String(value) : current_value + String(value)
+            current_expression_element.textContent = current_value
+        }
+        
     }
 }
+
+
+function clear_all_on_expression(event){
+    current_expression.length = 0
+    current_value = 0
+    current_expression_element.textContent = current_value
+}
+
+
+function add_operation(event){
+
+}
+
+
+init()

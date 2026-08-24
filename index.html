@@ -11,8 +11,8 @@
   <div class="calculator">
     <!-- Tela da Calculadora -->
     <div class="display">
-      <div id='historic' class="history">12 ×</div>
-      <div id='current_on_hold' class="current-input">0</div>
+      <div id='historic' class="history"></div>
+      <div id='current_expression' class="current-input"></div>
     </div>
 
     <!-- Teclado de Botões -->
@@ -20,7 +20,7 @@
       <!-- Linha 1 -->
       <button class="btn-secondary">%</button>
       <button class="btn-secondary">CE</button>
-      <button class="btn-secondary">C</button>
+      <button onclick="clear_all_on_expression(event)" class="btn-secondary">C</button>
       <button class="btn-secondary">⌫</button>
 
       <!-- Linha 2 -->
