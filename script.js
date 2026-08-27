@@ -56,8 +56,21 @@ function clear_all_on_expression(event){
 }
 
 
-function add_operation(event){
+function add_function(){
+    
+    if(current_value === '0' || !current_value){
+        return
+    }
 
+    current_expression.push(current_value)
+    historic.push(current_value)
+    current_expression.push('+')
+    historic.push('+')
+
+    current_value = '0'
+
+    current_expression_element.textContent = current_expression
+    historic_element.textContent = historic
 }
 
 
