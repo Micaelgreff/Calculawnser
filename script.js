@@ -49,10 +49,15 @@ function number_function(event, value){
 }
 
 
-function clear_all_on_expression(event){
+function clear_all_on_display(event){
     current_expression.length = 0
-    current_value = 0
+    historic.length = 0
+
+    current_value = '0'
+
+
     current_expression_element.textContent = current_value
+    historic_element.textContent = historic
 }
 
 
