@@ -16,6 +16,16 @@ const phrases = {
 }
 
 
+const available_operators = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+    "*": (a, b) => a * b,
+    "/": (a, b) => a / b,
+};
+
+
+
+
 function init(){
     current_expression_element.textContent = current_value
     historic_element.textContent = historic
@@ -23,8 +33,45 @@ function init(){
 
 
 function calculateValuesOnHold(){
-    current_expression.push(current_expression_element.textContent)
-    console.log(current_expression)
+    if(current_expression.length === 0){
+        return
+    }
+    current_expression.push(current_value)
+
+    let first_number = null
+    let second_number = null
+    let operator
+
+    let summary = 0
+
+    current_expression.forEach(value_from_expression => {
+        console.log(value_from_expression)
+        if(value_from_expression in available_operators){
+            operator = value_from_expression
+        } else {
+            if(first_number === null){
+                first_number = Number(value_from_expression)
+            } else {
+                second_number = Number(value_from_expression)
+            }
+        }
+
+        if(operator && first_number !== null && second_number !== null){
+            console.log(available_operators, operator, first_number, second_number)
+            summary += available_operators[operator](first_number, second_number)
+            first_number = null
+            second_number = null
+            operator = undefined
+        } 
+    })
+
+    historic.length = 0
+    historic.push(String(summary))
+    historic_element.textContent = historic
+
+    current_value = String(summary)
+    current_expression.length = 0
+    current_expression_element.textContent = summary
 }
 
 
